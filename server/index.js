@@ -6,11 +6,16 @@ const port = process.env.PORT || 5000;
 require('dotenv').config();
 
 // CONNECT MONGOOSE
-mongoose.connect(
-	'mongodb+srv://test:<password>@cluster0.dussar6.mongodb.net/test'
-);
-
-// PJeOext3jcR3oWgk
+mongoose
+	.connect(
+		`mongodb+srv://test:${process.env.DB_PASS}@cluster0.dussar6.mongodb.net/test`,
+		{
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		}
+	)
+	.then(() => console.log('Database Connected Successfully!'))
+	.catch((err) => console.log(err));
 
 // MADIALWARE
 app.use(cors());

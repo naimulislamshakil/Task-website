@@ -1,0 +1,135 @@
+[
+	{
+		"name": "",
+		"product": ["Manufacturing"]
+	},
+	{
+		"name": "",
+		"product": ["Construction materials"]
+	},
+	{
+		"name": "",
+		"product": ["Electronics and Optics"]
+	},
+	{
+		"name": "Food and Bekerage",
+		"product": [
+			"Bakery & confectionery products",
+			"Beverages",
+			"Fish & fish products",
+			"Meat & meat products",
+			"Milk & dairy products",
+			"Sweets &amp; snack food",
+			"Other"
+		]
+	},
+	{
+		"name": "Furniture",
+		"product": [
+			"Bathroom/sauna",
+			"Bedroom",
+			"Children’s room",
+			"Kitchen",
+			"Living room",
+			"Office",
+			"Outdoor",
+			"Project furniture",
+			"Other (Furniture)"
+		]
+	},
+	{
+		"name": "Machinery",
+		"product": [
+			"Machinery components",
+			"Machinery equipment/tools",
+			"Manufacture of machinery",
+			""
+		]
+	},
+
+	{
+		"name": "Maritime",
+		"product": [
+			"Aluminium and steel workboats",
+			"Boat/Yacht building",
+			"Ship repair and conversion",
+			"Metal structures",
+			"Repair and maintenance service",
+			"Other"
+		]
+	},
+
+	{
+		"name": "Metalworking",
+		"product": [
+			"Construction of metal structures",
+			"Houses and buildings",
+			"Metal products"
+		]
+	},
+	{
+		"name": "Metal works",
+		"product": [
+			"CNC-machining",
+			"Forgings, Fasteners",
+			"Gas, Plasma, Laser cutting",
+			"MIG, TIG, Aluminum welding",
+			""
+		]
+	},
+	{
+		"name": "Plastic and Rubber",
+		"product": [
+			"Packaging",
+			"Plastic goods",
+			"Plastic processing technology",
+			"Blowing",
+			"Moulding",
+			"Plastics welding and processing",
+			"Plastic profiles"
+		]
+	},
+	{
+		"name": "Printing",
+		"product": [
+			"Advertising",
+			"Book/Periodicals printing",
+			"Labelling and packaging printing"
+		]
+	},
+	{
+		"name": "Textile and Clothing",
+		"product": ["Clothing", "Textile"]
+	},
+	{
+		"name": "Wood",
+		"product": ["Wooden building materials", "Wooden houses", "Other (Wood)"]
+	},
+	{
+		"name": "Service",
+		"product": [
+			"Business services",
+			"Engineering",
+			"Information Technology and Telecommunications",
+			"Data processing, Web portals, E-marketing",
+			"Programming, Consultancy",
+			"Software, Hardware",
+			"Telecommunications"
+		]
+	},
+	{
+		"name": "Tourism",
+		"product": [
+			"Translation services",
+			"Transport and Logistics",
+			"Air",
+			"Rail",
+			"Road",
+			"Water"
+		]
+	},
+	{
+		"name": "Other",
+		"product": ["Creative industries", "Energy technology", "Environment"]
+	}
+]
