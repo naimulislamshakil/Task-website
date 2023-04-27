@@ -1,3 +1,11 @@
 export const DATA_LOADING = 'DATA_LOADING';
 export const DATA_FAIL = 'DATA_FAIL';
 export const DATA_SUCCESS = 'DATA_SUCCESS';
+
+export const CREATE_LOADING = 'CREATE_LOADING';
+export const CREATE_FAIL = 'CREATE_FAIL';
+export const CREATE_SUCCESS = 'CREATE_SUCCESS';
+
+export const CREATE_LOADING = 'CREATE_LOADING';
+export const CREATE_FAIL = 'CREATE_FAIL';
+export const CREATE_SUCCESS = 'CREATE_SUCCESS';

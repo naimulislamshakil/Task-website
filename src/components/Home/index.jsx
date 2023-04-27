@@ -1,6 +1,4 @@
-import { Copyright } from '@mui/icons-material';
 import {
-	Avatar,
 	Box,
 	Button,
 	Checkbox,
@@ -16,7 +14,8 @@ import {
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDataAction } from '../../Redux/Action/index';
+import { toast } from 'react-toastify';
+import { createDataAction, getDataAction } from '../../Redux/Action/index';
 
 const Home = () => {
 	const [value, setValue] = useState('');
@@ -25,6 +24,10 @@ const Home = () => {
 	const dispatch = useDispatch();
 
 	const { message } = useSelector((state) => state.datas);
+	const { message: mes, error, loading } = useSelector((state) => state.create);
+
+	console.log({ mes, error, loading });
+
 	const handleChange = (e) => {
 		setValue(e.target.value);
 	};
@@ -33,10 +36,20 @@ const Home = () => {
 		dispatch(getDataAction());
 	}, [dispatch]);
 
-	const handleSubmit = () => {
-		const input = { name, value };
-		console.log(input);
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const input = { name, selector: value };
+		dispatch(createDataAction(input));
 	};
+
+	if (error) {
+		toast.error(error.message);
+	}
+
+	if (mes.status === 'Success') {
+		console.log('yety');
+		toast.success(mes.message);
+	}
 	return (
 		<Box>
 			<Grid container>
