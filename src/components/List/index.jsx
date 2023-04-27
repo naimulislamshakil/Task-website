@@ -1,3 +1,4 @@
+import { CloseFullscreen } from '@mui/icons-material';
 import {
 	Box,
 	Button,
@@ -11,10 +12,12 @@ import {
 } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getAllDataAction } from '../../Redux/Action';
 
 const List = () => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const { message } = useSelector((state) => state.allData);
 
@@ -22,7 +25,9 @@ const List = () => {
 		dispatch(getAllDataAction());
 	}, [dispatch]);
 
-	console.log(message.data);
+	const edit = (id) => {
+		navigate(`/edit/${id}`);
+	};
 	return (
 		<Box>
 			<TableContainer component={Paper}>
@@ -46,7 +51,9 @@ const List = () => {
 									</TableCell>
 									<TableCell align="center">{row.selector}</TableCell>
 									<TableCell align="center">
-										<Button variant="outlined">EDIT</Button>
+										<Button onClick={() => edit(row._id)} variant="outlined">
+											EDIT
+										</Button>
 									</TableCell>
 								</TableRow>
 							))}
