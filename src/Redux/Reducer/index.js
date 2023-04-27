@@ -5,6 +5,9 @@ import {
 	DATA_FAIL,
 	DATA_LOADING,
 	DATA_SUCCESS,
+	GET_DATA_FAIL,
+	GET_DATA_LOADING,
+	GET_DATA_SUCCESS,
 } from '../Action/actionType';
 
 const initialState = {
@@ -54,6 +57,32 @@ export const createDataReducer = (state = initialState, action) => {
 				message: [],
 			};
 		case CREATE_SUCCESS:
+			return {
+				loading: false,
+				error: null,
+				message: action.payload,
+			};
+
+		default:
+			return state;
+	}
+};
+
+export const getAllDataReducer = (state = initialState, action) => {
+	switch (action.type) {
+		case GET_DATA_LOADING:
+			return {
+				loading: true,
+				error: null,
+				message: [],
+			};
+		case GET_DATA_FAIL:
+			return {
+				loading: false,
+				error: action.payload,
+				message: [],
+			};
+		case GET_DATA_SUCCESS:
 			return {
 				loading: false,
 				error: null,

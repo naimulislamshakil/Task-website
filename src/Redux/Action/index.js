@@ -6,6 +6,9 @@ import {
 	DATA_FAIL,
 	DATA_LOADING,
 	DATA_SUCCESS,
+	GET_DATA_FAIL,
+	GET_DATA_LOADING,
+	GET_DATA_SUCCESS,
 } from './actionType';
 
 export const getDataAction = () => async (dispatch) => {
@@ -43,6 +46,26 @@ export const createDataAction = (data) => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: CREATE_FAIL,
+			payload: error?.message,
+		});
+	}
+};
+
+export const getAllDataAction = () => async (dispatch) => {
+	try {
+		dispatch({
+			type: GET_DATA_LOADING,
+		});
+
+		const res = await axios.get('http://localhost:5000/api/v1/getSelector');
+
+		dispatch({
+			type: GET_DATA_SUCCESS,
+			payload: res.data,
+		});
+	} catch (error) {
+		dispatch({
+			type: GET_DATA_FAIL,
 			payload: error?.message,
 		});
 	}

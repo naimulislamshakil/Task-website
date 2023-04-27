@@ -6,6 +6,6 @@ export const CREATE_LOADING = 'CREATE_LOADING';
 export const CREATE_FAIL = 'CREATE_FAIL';
 export const CREATE_SUCCESS = 'CREATE_SUCCESS';
 
-export const CREATE_LOADING = 'CREATE_LOADING';
-export const CREATE_FAIL = 'CREATE_FAIL';
-export const CREATE_SUCCESS = 'CREATE_SUCCESS';
+export const GET_DATA_LOADING = 'GET_DATA_LOADING';
+export const GET_DATA_FAIL = 'GET_DATA_FAIL';
+export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
