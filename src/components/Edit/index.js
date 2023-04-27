@@ -13,7 +13,12 @@ import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getDataAction, getDataByIdAction } from '../../Redux/Action';
+import { toast } from 'react-toastify';
+import {
+	getDataAction,
+	getDataByIdAction,
+	updateDataByIdAction,
+} from '../../Redux/Action';
 
 const Edit = () => {
 	const [value, setValue] = useState('');
@@ -23,6 +28,7 @@ const Edit = () => {
 
 	const { message: singleData } = useSelector((state) => state.getSingleData);
 	const { message } = useSelector((state) => state.datas);
+	const { message: updata, erroe } = useSelector((state) => state.updateData);
 
 	const handleChange = (e) => {
 		setValue(e.target.value);
@@ -36,9 +42,14 @@ const Edit = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const input = { name, selector: value };
-		console.log(input);
+		dispatch(updateDataByIdAction(id, input));
 	};
-	console.log(singleData);
+
+	if (updata.modifiedCount) {
+		toast.success('Update Succesful.');
+		window.location.reload();
+	}
+
 	return (
 		<Box>
 			<Grid container>
@@ -70,7 +81,7 @@ const Edit = () => {
 								required
 								fullWidth
 								id="name"
-								value={singleData.name}
+								defaultValue={singleData.name}
 								onBlur={(e) => setName(e.target.value)}
 								label="Name"
 								name="name"

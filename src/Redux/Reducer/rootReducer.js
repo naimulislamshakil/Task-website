@@ -4,6 +4,7 @@ import {
 	getAllDataReducer,
 	getDataByIdReducer,
 	getDataReducer,
+	updateDataByIdReducer,
 } from '.';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
 	create: createDataReducer,
 	allData: getAllDataReducer,
 	getSingleData: getDataByIdReducer,
+	updateData: updateDataByIdReducer,
 });
 
 export default rootReducer;

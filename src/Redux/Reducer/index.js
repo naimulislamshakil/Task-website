@@ -11,6 +11,9 @@ import {
 	GET_DATA_FAIL,
 	GET_DATA_LOADING,
 	GET_DATA_SUCCESS,
+	UPDATE_DATA_BYID_FAIL,
+	UPDATE_DATA_BYID_LOADING,
+	UPDATE_DATA_BYID_SUCCESS,
 } from '../Action/actionType';
 
 const initialState = {
@@ -117,6 +120,32 @@ export const getDataByIdReducer = (state = initialStates, action) => {
 				message: {},
 			};
 		case GET_DATA_BYID_SUCCESS:
+			return {
+				loading: false,
+				error: null,
+				message: action.payload,
+			};
+
+		default:
+			return state;
+	}
+};
+
+export const updateDataByIdReducer = (state = initialStates, action) => {
+	switch (action.type) {
+		case UPDATE_DATA_BYID_LOADING:
+			return {
+				loading: true,
+				error: null,
+				message: {},
+			};
+		case UPDATE_DATA_BYID_FAIL:
+			return {
+				loading: false,
+				error: action.payload,
+				message: {},
+			};
+		case UPDATE_DATA_BYID_SUCCESS:
 			return {
 				loading: false,
 				error: null,

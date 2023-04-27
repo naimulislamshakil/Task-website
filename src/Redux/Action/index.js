@@ -12,6 +12,9 @@ import {
 	GET_DATA_FAIL,
 	GET_DATA_LOADING,
 	GET_DATA_SUCCESS,
+	UPDATE_DATA_BYID_FAIL,
+	UPDATE_DATA_BYID_LOADING,
+	UPDATE_DATA_BYID_SUCCESS,
 } from './actionType';
 
 export const getDataAction = () => async (dispatch) => {
@@ -91,6 +94,29 @@ export const getDataByIdAction = (id) => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: GET_DATA_BYID_FAIL,
+			payload: error?.message,
+		});
+	}
+};
+
+export const updateDataByIdAction = (id, data) => async (dispatch) => {
+	try {
+		dispatch({
+			type: UPDATE_DATA_BYID_LOADING,
+		});
+
+		const res = await axios.put(
+			`http://localhost:5000/api/v1/getSelector/${id}`,
+			data
+		);
+
+		dispatch({
+			type: UPDATE_DATA_BYID_SUCCESS,
+			payload: res.data.data,
+		});
+	} catch (error) {
+		dispatch({
+			type: UPDATE_DATA_BYID_FAIL,
 			payload: error?.message,
 		});
 	}
