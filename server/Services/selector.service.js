@@ -11,6 +11,11 @@ exports.getSelectorService = async () => {
 };
 exports.getSelectorByIdService = async (id) => {
 	const result = await INPUT_SCHEMA.findById({ _id: id });
-	console.log(result);
+
+	return result;
+};
+exports.updateSelectorByIdService = async (id, data) => {
+	const result = await INPUT_SCHEMA.updateOne({ _id: id }, data);
+
 	return result;
 };

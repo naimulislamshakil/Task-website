@@ -36,8 +36,9 @@ const Edit = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const input = { name, selector: value };
+		console.log(input);
 	};
-
+	console.log(singleData);
 	return (
 		<Box>
 			<Grid container>
@@ -69,7 +70,7 @@ const Edit = () => {
 								required
 								fullWidth
 								id="name"
-								defaultValue={singleData.name}
+								value={singleData.name}
 								onBlur={(e) => setName(e.target.value)}
 								label="Name"
 								name="name"
@@ -82,7 +83,7 @@ const Edit = () => {
 									required
 									labelId="demo-simple-select-label"
 									id="demo-simple-select"
-									value={value}
+									value={value || singleData.selector}
 									label="Selector"
 									onChange={handleChange}
 								>
