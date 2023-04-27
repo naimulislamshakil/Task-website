@@ -6,6 +6,9 @@ import {
 	DATA_FAIL,
 	DATA_LOADING,
 	DATA_SUCCESS,
+	GET_DATA_BYID_FAIL,
+	GET_DATA_BYID_LOADING,
+	GET_DATA_BYID_SUCCESS,
 	GET_DATA_FAIL,
 	GET_DATA_LOADING,
 	GET_DATA_SUCCESS,
@@ -66,6 +69,28 @@ export const getAllDataAction = () => async (dispatch) => {
 	} catch (error) {
 		dispatch({
 			type: GET_DATA_FAIL,
+			payload: error?.message,
+		});
+	}
+};
+
+export const getDataByIdAction = (id) => async (dispatch) => {
+	try {
+		dispatch({
+			type: GET_DATA_BYID_LOADING,
+		});
+
+		const res = await axios.get(
+			`http://localhost:5000/api/v1/getSelector/${id}`
+		);
+
+		dispatch({
+			type: GET_DATA_BYID_SUCCESS,
+			payload: res.data.data,
+		});
+	} catch (error) {
+		dispatch({
+			type: GET_DATA_BYID_FAIL,
 			payload: error?.message,
 		});
 	}

@@ -10,6 +10,7 @@ exports.getSelectorService = async () => {
 	return result;
 };
 exports.getSelectorByIdService = async (id) => {
-	const result = await INPUT_SCHEMA.find({ _id: id });
+	const result = await INPUT_SCHEMA.findById({ _id: id });
+	console.log(result);
 	return result;
 };

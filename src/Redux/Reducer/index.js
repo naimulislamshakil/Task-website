@@ -5,6 +5,9 @@ import {
 	DATA_FAIL,
 	DATA_LOADING,
 	DATA_SUCCESS,
+	GET_DATA_BYID_FAIL,
+	GET_DATA_BYID_LOADING,
+	GET_DATA_BYID_SUCCESS,
 	GET_DATA_FAIL,
 	GET_DATA_LOADING,
 	GET_DATA_SUCCESS,
@@ -14,6 +17,11 @@ const initialState = {
 	loading: false,
 	error: null,
 	message: [],
+};
+const initialStates = {
+	loading: false,
+	error: null,
+	message: {},
 };
 
 export const getDataReducer = (state = initialState, action) => {
@@ -83,6 +91,32 @@ export const getAllDataReducer = (state = initialState, action) => {
 				message: [],
 			};
 		case GET_DATA_SUCCESS:
+			return {
+				loading: false,
+				error: null,
+				message: action.payload,
+			};
+
+		default:
+			return state;
+	}
+};
+
+export const getDataByIdReducer = (state = initialStates, action) => {
+	switch (action.type) {
+		case GET_DATA_BYID_LOADING:
+			return {
+				loading: true,
+				error: null,
+				message: {},
+			};
+		case GET_DATA_BYID_FAIL:
+			return {
+				loading: false,
+				error: action.payload,
+				message: {},
+			};
+		case GET_DATA_BYID_SUCCESS:
 			return {
 				loading: false,
 				error: null,

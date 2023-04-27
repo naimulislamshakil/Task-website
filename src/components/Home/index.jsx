@@ -47,7 +47,6 @@ const Home = () => {
 	}
 
 	if (mes.status === 'Success') {
-		console.log('yety');
 		toast.success(mes.message);
 	}
 	return (
