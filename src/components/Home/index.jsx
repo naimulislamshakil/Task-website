@@ -4,7 +4,6 @@ import {
 	Box,
 	Button,
 	Checkbox,
-	Container,
 	CssBaseline,
 	FormControl,
 	FormControlLabel,
@@ -13,14 +12,31 @@ import {
 	MenuItem,
 	Select,
 	TextField,
-	ThemeProvider,
 	Typography,
 } from '@mui/material';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDataAction } from '../../Redux/Action/index';
 
 const Home = () => {
+	const [value, setValue] = useState('');
+	const [name, setName] = useState('');
+	const [checkbox, setCheckbox] = useState(false);
+	const dispatch = useDispatch();
+
+	const { message } = useSelector((state) => state.datas);
+	const handleChange = (e) => {
+		setValue(e.target.value);
+	};
+
+	useEffect(() => {
+		dispatch(getDataAction());
+	}, [dispatch]);
+
+	const handleSubmit = () => {
+		const input = { name, value };
+		console.log(input);
+	};
 	return (
 		<Box>
 			<Grid container>
@@ -44,7 +60,7 @@ const Home = () => {
 						</Typography>
 						<Box
 							component="form"
-							// onSubmit={handleSubmit}
+							onSubmit={handleSubmit}
 							noValidate
 							sx={{ mt: 1 }}
 						>
@@ -53,41 +69,44 @@ const Home = () => {
 								required
 								fullWidth
 								id="name"
+								onBlur={(e) => setName(e.target.value)}
 								label="Name"
 								name="name"
 								autoComplete="text"
 								autoFocus
 							/>
 							<FormControl fullWidth>
-								<InputLabel id="demo-simple-select-label">Age</InputLabel>
+								<InputLabel id="demo-simple-select-label">Selector</InputLabel>
 								<Select
+									required
 									labelId="demo-simple-select-label"
 									id="demo-simple-select"
-									value="10"
-									label="Age"
-
-									// onChange={handleChange}
+									value={value}
+									label="Selector"
+									onChange={handleChange}
 								>
-									<Typography variant="p" style={{ paddingLeft: '5px' }}>
-										jhysadgyas
-									</Typography>
-									<MenuItem value={10}>Ten</MenuItem>
-									<MenuItem value={20}>Twenty</MenuItem>
-									<MenuItem value={30}>Thirty</MenuItem>
+									{message.map((data, i) =>
+										data.product.map((value) => (
+											<MenuItem value={value}>{value}</MenuItem>
+										))
+									)}
 								</Select>
 							</FormControl>
 							<FormControlLabel
 								control={<Checkbox value="remember" color="primary" />}
 								label="Agree to terms & condition."
+								onClick={() => setCheckbox(!checkbox)}
 							/>
-							<Button
-								type="submit"
-								fullWidth
-								variant="contained"
-								sx={{ mt: 3, mb: 2 }}
-							>
-								SAVE
-							</Button>
+							{checkbox === true && (
+								<Button
+									type="submit"
+									fullWidth
+									variant="contained"
+									sx={{ mt: 3, mb: 2 }}
+								>
+									SAVE
+								</Button>
+							)}
 						</Box>
 					</Box>
 				</Grid>

@@ -11,7 +11,7 @@ const SelectorRoute = require('./Routes/V1/selector.route');
 // CONNECT MONGOOSE
 mongoose
 	.connect(
-		`mongodb+srv://test:${process.env.DB_PASS}@cluster0.dussar6.mongodb.net/test`,
+		`mongodb+srv://test:${process.env.DB_PASS}@cluster0.dussar6.mongodb.net/?retryWrites=true&w=majority`,
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
