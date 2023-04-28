@@ -43,7 +43,10 @@ export const createDataAction = (data) => async (dispatch) => {
 			type: CREATE_LOADING,
 		});
 
-		const res = await axios.post('http://localhost:5000/api/v1/selector', data);
+		const res = await axios.post(
+			'https://test-backend-bice.vercel.app/api/v1/selector',
+			data
+		);
 
 		dispatch({
 			type: CREATE_SUCCESS,
@@ -63,7 +66,9 @@ export const getAllDataAction = () => async (dispatch) => {
 			type: GET_DATA_LOADING,
 		});
 
-		const res = await axios.get('http://localhost:5000/api/v1/getSelector');
+		const res = await axios.get(
+			'https://test-backend-bice.vercel.app/api/v1/getSelector'
+		);
 
 		dispatch({
 			type: GET_DATA_SUCCESS,
@@ -84,7 +89,7 @@ export const getDataByIdAction = (id) => async (dispatch) => {
 		});
 
 		const res = await axios.get(
-			`http://localhost:5000/api/v1/getSelector/${id}`
+			`https://test-backend-bice.vercel.app/api/v1/getSelector/${id}`
 		);
 
 		dispatch({
@@ -106,7 +111,7 @@ export const updateDataByIdAction = (id, data) => async (dispatch) => {
 		});
 
 		const res = await axios.put(
-			`http://localhost:5000/api/v1/getSelector/${id}`,
+			`https://test-backend-bice.vercel.app/api/v1/getSelector/${id}`,
 			data
 		);
 
