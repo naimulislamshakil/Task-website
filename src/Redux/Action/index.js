@@ -23,7 +23,7 @@ export const getDataAction = () => async (dispatch) => {
 			type: DATA_LOADING,
 		});
 
-		const res = await axios.get('https://test-backend-2-6d1b.vercel.app/data');
+		const res = await axios.get('http://localhost:5001/data');
 
 		dispatch({
 			type: DATA_SUCCESS,
