@@ -42,7 +42,7 @@ export const createDataAction = (data) => async (dispatch) => {
 		dispatch({
 			type: CREATE_LOADING,
 		});
-
+		console.log(data);
 		const res = await axios.post(
 			'https://test-backend-bice.vercel.app/api/v1/selector',
 			data
