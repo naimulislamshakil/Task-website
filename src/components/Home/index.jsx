@@ -26,7 +26,7 @@ const Home = () => {
 	const { message } = useSelector((state) => state.datas);
 	const { message: mes, error, loading } = useSelector((state) => state.create);
 
-	console.log({ mes, error, loading });
+	console.log({ mes, error, loading, message });
 
 	const handleChange = (e) => {
 		setValue(e.target.value);
