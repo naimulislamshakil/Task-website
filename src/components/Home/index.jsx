@@ -97,11 +97,12 @@ const Home = () => {
 									label="Selector"
 									onChange={handleChange}
 								>
-									{message.map((data, i) =>
-										data.product.map((value) => (
-											<MenuItem value={value}>{value}</MenuItem>
-										))
-									)}
+									{message &&
+										message.map((data, i) =>
+											data.product.map((value) => (
+												<MenuItem value={value}>{value}</MenuItem>
+											))
+										)}
 								</Select>
 							</FormControl>
 							<FormControlLabel
